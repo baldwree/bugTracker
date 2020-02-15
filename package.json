@@ -1,0 +1,23 @@
+{
+  "name": "bugtrackpack",
+  "version": "1.0.0",
+  "description": "npm package for hw6-8 in CIS 371",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baldwree/bugTracker.git"
+  },
+  "keywords": [
+    "bug",
+    "track"
+  ],
+  "author": "Reece",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baldwree/bugTracker/issues"
+  },
+  "homepage": "https://github.com/baldwree/bugTracker#readme"
+}

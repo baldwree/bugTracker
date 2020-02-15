@@ -1,0 +1,40 @@
+<html>
+
+<body>
+
+	<h1>List of bugs</h1>
+
+	<table>
+		<tr>
+			<th>Title</th>
+			<th>Description</th>
+			<th>Issue type</th>
+			<th>Priority</th>
+			<th>Status</th>
+		</tr>
+
+		<% bugs.forEach((bug) => { %>
+
+			<tr>
+				<td><%= bug.title %></td>
+				<td><%= bug.description %></td>
+				<td><%= bug.type %></td>
+				<td><%= bug.priority %></td>
+				<td><%= bug.status %></td>
+
+				<td>
+					<a href = "/bugs/<%= bug.id %>">Show</a>
+					<a href = "/bugs/<%= bug.id %>/edit">Edit</a>
+					<a href = "/bugs/<%= bug.id %>/delete">Delete</a>
+				</td>
+			</tr>
+
+		<% }) %>
+
+	</table>
+
+	<a href = "/bugs/new">New</a>
+
+</body>
+
+</html>
