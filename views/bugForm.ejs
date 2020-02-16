@@ -1,0 +1,53 @@
+<% if (bug.id) {
+		submitLabel = "Update bug";
+		route = `/bugs/${bug.id}`;
+	} else {
+		submitLabel = "Create bug";
+		route = "/bugs";
+	} %>
+
+<% if (bug.errors) {
+	if (bug.errors.length > 0) { %>
+	<% console.log("Found errors"); console.log(bug.errors); %>
+
+	<div>
+		<p>Errors:</p>
+		<ul>
+			<%- bug.errors.map((item) => `<li>${item}</li>`).join("\n"); %>
+		</ul>
+	</div>
+
+<% } } %>
+
+<form action="<%= route %>" accept-charset="UTF-8" method="post">
+
+	<div class="field">
+		<label for="bug_title">Title</label>
+		<input type="text" name="bug[title]" id="bug_title" value="<%= bug.title %>">
+	</div>
+
+	<div class="field">
+		<label for="bug_description">Description</label>
+		<input type="text" name="bug[description]" id="bug_description" value="<%= bug.description %>">
+	</div>
+
+	<div class="field">
+		<label for="bug_type">Issue</label>
+		<input type="text" name="bug[type]" id="bug_type" value="<%= bug.type %>">
+	</div>
+
+	<div class="field">
+		<label for="bug_priority">Priority</label>
+		<input type="text" name="bug[priority]" id="bug_priority" value="<%= bug.priority %>">
+	</div>
+
+	<div class="field">
+		<label for="bug_status">Status</label>
+		<input type="text" name="bug[status]" id="bug_status" value="<%= bug.status %>">
+	</div>
+
+	<div class="actions">
+		<input type="submit" name="commit" value="<%= submitLabel %>" />
+	</div>
+
+</form>

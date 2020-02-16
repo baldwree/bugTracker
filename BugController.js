@@ -4,10 +4,13 @@ class BugController {
 	// list
 	index(req, res) {
 		let bugs = Bug.all();
-		res.render('bugIndex', { 'bugs': bugs });
+		res.render('bugIndex', { bugs: bugs });
 	}
 
 	// create
+	create(req, res) {
+		res.render('bugCreate', { bug: new Bug() })
+	}
 
 	// read
 
