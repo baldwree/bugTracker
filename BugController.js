@@ -8,8 +8,8 @@ class BugController {
 	}
 
 	// create
-	create(req, res) {
-		res.render('bugCreate', { bug: new Bug() })
+	newBug(req, res) {
+		res.render('bugNew', { bug: new Bug() })
 	}
 
 	// read

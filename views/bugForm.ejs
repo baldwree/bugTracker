@@ -6,8 +6,7 @@
 		route = "/bugs";
 	} %>
 
-<% if (bug.errors) {
-	if (bug.errors.length > 0) { %>
+<% if (bug.errors.length > 0) { %>
 	<% console.log("Found errors"); console.log(bug.errors); %>
 
 	<div>
@@ -17,7 +16,7 @@
 		</ul>
 	</div>
 
-<% } } %>
+<% } %>
 
 <form action="<%= route %>" accept-charset="UTF-8" method="post">
 
