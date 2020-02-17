@@ -10,8 +10,12 @@ app.set('view engine', 'ejs');
 
 // linked to bugIndex.ejs
 app.get('/bugs', (req, res) => { bugController.index(req, res); })
-
+// bugNew.ejs
 app.get('/bugs/new', (req, res) => { bugController.newBug(req, res); })
+// bugShow.ejs
+app.get('/bugs/:id', (req, res) => {
+	bugController.showBug(req, res);
+})
 
 // launch server
 app.listen(port, () => console.log(`Bug app listening on port ${port}!`))

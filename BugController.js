@@ -13,6 +13,15 @@ class BugController {
 	}
 
 	// read
+	showBug(req, res) {
+		let id = req.params.id;
+		let bug = Bug.get(id);
+		if (!bug) {
+			res.send("Could not find bug with id of " + id);
+		} else {
+			res.render('bugShow', { bug: bug })
+		}
+	}
 
 	// update
 

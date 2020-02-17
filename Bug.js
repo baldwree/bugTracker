@@ -39,7 +39,7 @@ class Bug {
 	}
 
 	static get(id) {
-		return this.bugCollection.find((item) => item.id === id);
+		return this.bugCollection.find((item) => item.id == id);
 	}
 
 	static create(bugInfo) {
