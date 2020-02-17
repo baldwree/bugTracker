@@ -1,23 +1,21 @@
-<% if (bug.id) {
-		submitLabel = "Update bug";
-		route = `/bugs/${bug.id}`;
-	} else {
-		submitLabel = "Create bug";
-		route = "/bugs";
-	} %>
-
-<% if (bug.errors) {
-	if (bug.errors.length > 0) { %>
-	<% console.log("Found errors"); console.log(bug.errors); %>
-
-	<div>
-		<p>Errors:</p>
-		<ul>
-			<%- bug.errors.map((item) => `<li>${item}</li>`).join("\n"); %>
-		</ul>
-	</div>
-
-<% } } %>
+<%
+  if (bug.id) {
+    submitLabel = "Update Bug";
+    route = `/bugs/${bug.id}`;
+  } else {
+    submitLabel = "Create bug";
+    route = "/bugs";
+  }
+%>
+    <% if (bug.errors.length > 0) { %>
+        <% console.log("Found errors"); console.log(bug.errors); %>
+            <div>
+                <p>Errors:</p>
+                <ul>
+                    <%- bug.errors.map((item) => `<li>${item}</li>` ).join("\n"); %>
+                </ul>
+            </div>
+            <% } %>
 
 <form action="<%= route %>" accept-charset="UTF-8" method="post">
 

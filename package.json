@@ -19,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/baldwree/bugTracker/issues"
   },
-  "homepage": "https://github.com/baldwree/bugTracker#readme"
+  "homepage": "https://github.com/baldwree/bugTracker#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs-cli": "^2.1.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {}
 }
