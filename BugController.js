@@ -41,6 +41,44 @@ class BugController {
 	}
 
 	// update
+	editBug(req, res) {
+		let id = req.params.id;
+		let bug = Bug.get(id);
+		if (!bug) {
+			res.send("Could not find bug with id of " + id);
+		}
+		else {
+			res.render('bugEdit', { bug: bug });
+		}
+	}
+
+	updateBug(req, res) {
+		let id = req.params.id;
+		let bug = Bug.get(id);
+
+		// check if bug updates are valid
+		let testBug = new Bug(req.body.bug);
+		if (!testBug.isValid()) {	// if updates are invalid, send user back to edit
+			testBug.id = bug.id;
+			res.render('bugEdit', { bug: testBug });
+			return;
+		}
+		// updates are valid, continue as normal
+		if (!bug) {
+			res.send("Could not find bug with id of " + id);
+		} else {
+			bug.title = req.body.bug.title;
+			bug.description = req.body.bug.description;
+			bug.type = req.body.bug.type;
+			bug.priority = req.body.bug.priority;
+			bug.status = req.body.bug.status;
+			// database would use 'save' method here
+
+			// send redirect to 'show' for new bug
+			res.writeHead(302, { 'Location': `/bugs/${bug.id}` });
+			res.end();
+		}
+	}
 
 	// delete
 

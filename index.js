@@ -36,5 +36,15 @@ app.get('/bugs/:id', (req, res) => {
 	bugController.showBug(req, res);
 })
 
+// bugEdit.ejs
+app.get('/bugs/:id/edit', (req, res) => {
+	bugController.editBug(req, res);
+})
+
+// update bug
+app.post('/bugs/:id', (req, res) => {
+	bugController.updateBug(req, res);
+})
+
 // launch server
 app.listen(port, () => console.log(`Bug app listening on port ${port}!`))
