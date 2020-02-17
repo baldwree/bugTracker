@@ -81,6 +81,31 @@ class BugController {
 	}
 
 	// delete
+	deleteBug(req, res) {
+		let id = req.params.id;
+		let bug = Bug.get(id);
+
+		if (!bug) {
+			res.send("Could not find bug with id of " + id);
+		} else {
+			res.render('bugDelete', { bug: bug });
+		}
+	}
+
+	killBug(req, res) {
+		let id = req.params.id;
+		let bug = Bug.get(id);
+
+		if (!bug) {
+			res.send("Could not find bug with id of " + id);
+		} else {
+			Bug.delete(bug);
+
+			res.writeHead(302, { 'Location': `/bugs` });
+			res.end();
+
+		}
+	}
 
 }
 

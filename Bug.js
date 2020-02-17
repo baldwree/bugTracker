@@ -50,6 +50,10 @@ class Bug {
 		}
 		return newBug;
 	}
+
+	static delete(bug) {
+		this.bugCollection.splice(this.bugCollection.indexOf(bug), 1);
+	}
 }
 
 Bug.idNo = 0;

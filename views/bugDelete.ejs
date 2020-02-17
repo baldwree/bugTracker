@@ -1,0 +1,38 @@
+<html>
+
+<body>
+	<h1>Delete bug?</h1>
+
+	<div>
+		<span><strong>Title: </strong></span>
+		<span class="text"><%= bug.title %></span>
+	</div>
+	<br>
+	<div>
+		<span><strong>Description: </strong></span>
+		<span class="text"><%= bug.description %></span>
+	</div>
+	<br>
+	<div>
+		<span><strong>Issue type: </strong></span>
+		<span class="text"><%= bug.type %></span>
+	</div>
+	<br>
+	<div>
+		<span><strong>Priority: </strong></span>
+		<span class="text"><%= bug.priority %></span>
+	</div>
+	<br>
+	<div>
+		<span><strong>Status: </strong></span>
+		<span class="text"><%= bug.status %></span>
+	</div>
+	<br>
+
+	<a href="/bugs/<%= bug.id %>/kill">Delete</a>
+	<span class="divider"> | </span>
+	<a href="/bugs ">Back</a>
+
+</body>
+
+</html>

@@ -46,5 +46,14 @@ app.post('/bugs/:id', (req, res) => {
 	bugController.updateBug(req, res);
 })
 
+// delete bug
+app.get('/bugs/:id/delete', (req, res) => {
+	bugController.deleteBug(req, res);
+})
+
+app.get('/bugs/:id/kill', (req, res) => {
+	bugController.killBug(req, res);
+})
+
 // launch server
 app.listen(port, () => console.log(`Bug app listening on port ${port}!`))
