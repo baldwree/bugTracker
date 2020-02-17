@@ -12,6 +12,23 @@ class BugController {
 		res.render('bugNew', { bug: new Bug() })
 	}
 
+	createBug(req, res) {
+		console.log("Creating new bug...");
+		console.log(req.body);
+		let newBug = Bug.create(req.body.bug);
+
+		if (newBug.isValid()) {
+			console.log("Adding new bug...");
+			console.log(newBug);
+
+			// send redirect to 'show' for new bug
+			res.writeHead(302, { 'Location': `/bugs/${newBug.id}` });
+			res.end();
+		} else {
+			res.render('bugNew', { bug: newBug });
+		}
+	}
+
 	// read
 	showBug(req, res) {
 		let id = req.params.id;

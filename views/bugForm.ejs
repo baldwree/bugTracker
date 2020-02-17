@@ -1,10 +1,12 @@
-<% if (bug.id) {
+<% 	// if the new bug has an id, update; otherwise create new bug
+	if (bug.id) {
 		submitLabel = "Update bug";
 		route = `/bugs/${bug.id}`;
 	} else {
 		submitLabel = "Create bug";
 		route = "/bugs";
-	} %>
+	} 
+%>
 
 <% if (bug.errors.length > 0) { %>
 	<% console.log("Found errors"); console.log(bug.errors); %>
@@ -27,7 +29,7 @@
 
 	<div class="field">
 		<label for="bug_description">Description</label>
-		<input type="text" name="bug[description]" id="bug_description" value="<%= bug.description %>">
+		<textarea name="bug[description]" id="bug_description" value="<%= bug.description %>"></textarea>
 	</div>
 
 	<div class="field">
