@@ -5,7 +5,7 @@
 	} else {
 		submitLabel = "Create bug";
 		route = "/bugs";
-	} 
+	}
 %>
 
 <% if (bug.errors.length > 0) { %>
@@ -34,25 +34,31 @@
 
 	<div class="field">
 		<label for="bug_type">Issue</label>
+		<select name="bug[type]" id="bug_type" value="<%= bug.type %>">
+			<option value="Feature">Feature</option>
+			<option value="Issue">Issue</option>
+			<option value="Enhancement">Enhancement</option>
+		</select>
 		<input type="text" name="bug[type]" id="bug_type" value="<%= bug.type %>">
 	</div>
 
 	<div class="field">
 		<label for="bug_priority">Priority</label>
-		<input type="text" name="bug[priority]" id="bug_priority" value="<%= bug.priority %>">
+		<select name="bug[priority]" id="bug_priority" value="<%= bug.priority %>">
+			<option value="High">High</option>
+			<option value="Medium">Medium</option>
+			<option value="Low">Low</option>
+		</select>
 	</div>
 
 	<div class="field">
 		<label for="bug_status">Status</label>
-		
-		<select id="bug_status" name="bug[status]">
-			<option value="open">Open</option>
-			<option value="closed">Closed</option>
-			<option value="monitor">Monitor</option>
-		</select>
+    <select name="bug[status]" id="bug_status" value="<%= bug.status %>">
+      <option value="Open">Open</option>
+      <option value="Closed">Closed</option>
+      <option value="Monitor">Monitor</option>
+    </select>
 	</div>
-	
-	<br>
 
 	<div class="actions">
 		<input type="submit" name="commit" value="<%= submitLabel %>" />
