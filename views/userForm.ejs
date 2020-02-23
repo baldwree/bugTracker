@@ -1,0 +1,50 @@
+<% 	// if the new user has an id, update; otherwise create new user
+	if (user.id) {
+		submitLabel = "Update user";
+		route = `/users/${user.id}`;
+	} else {
+		submitLabel = "Create user";
+		route = "/users";
+	}
+%>
+
+<% if (user.errors.length > 0) { %>
+	<% console.log("Found errors"); console.log(user.errors); %>
+
+	<div>
+		<p>Errors:</p>
+		<ul>
+			<%- user.errors.map((item) => `<li>${item}</li>`).join("\n"); %>
+		</ul>
+	</div>
+
+<% } %>
+
+<form action="<%= route %>" accept-charset="UTF-8" method="post">
+
+	<div class="field">
+		<label for="user_title">First name</label>
+		<input type="text" name="user[fname]" id="user_fname" value="<%= user.fname %>">
+	</div>
+
+	<div class="field">
+		<label for="user_title">Last name</label>
+		<input type="text" name="user[lname]" id="user_lname" value="<%= user.lname %>">
+	</div>
+
+	<div class="field">
+		<label for="user_title">Email</label>
+		<input type="text" name="user[email]" id="user_email" value="<%= user.email %>">
+	</div>
+
+
+	<div class="field">
+		<label for="user_title">Thumbnail path</label>
+		<input type="text" name="user[thumbnail]" id="user_thumbnail" value="<%= user.thumbnail %>">
+	</div>
+
+	<div class="actions">
+		<input type="submit" name="commit" value="<%= submitLabel %>" />
+	</div>
+
+</form>
