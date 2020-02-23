@@ -4,7 +4,7 @@
   "description": "npm package for hw6-8 in CIS 371",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/baldwree/bugTracker/issues"
   },
-  "homepage": "https://github.com/baldwree/bugTracker#readme"
+  "homepage": "https://github.com/baldwree/bugTracker#readme",
+  "devDependencies": {
+    "jest": "^25.1.0"
+  }
 }
