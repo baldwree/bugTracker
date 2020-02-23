@@ -14,7 +14,10 @@ app.set('view engine', 'ejs');
 // parse body of request if present
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
+// same as app.get below
+app.get('/', (req, res) => {
+	bugController.index(req, res);
+})
 
 // linked to bugIndex.ejs
 app.get('/bugs', (req, res) => { 

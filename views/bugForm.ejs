@@ -44,8 +44,15 @@
 
 	<div class="field">
 		<label for="bug_status">Status</label>
-		<input type="text" name="bug[status]" id="bug_status" value="<%= bug.status %>">
+		
+		<select id="bug_status" name="bug[status]">
+			<option value="open">Open</option>
+			<option value="closed">Closed</option>
+			<option value="monitor">Monitor</option>
+		</select>
 	</div>
+	
+	<br>
 
 	<div class="actions">
 		<input type="submit" name="commit" value="<%= submitLabel %>" />
