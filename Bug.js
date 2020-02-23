@@ -63,6 +63,6 @@ Bug.create({ title: 'crasheroo', description: 'Divide by zero error.', type: 'is
 Bug.create({ title: 'Validation not working', description: 'The title validation check is not firing!', type: 'issue', priority: 'high', status: 'open' });
 Bug.create({ title: 'Styling Needed', description: 'This site needs to be jazzed up!', type: 'feature', priority: 'high', status: 'open' });
 
-console.log(Bug.bugCollection);
+//console.log(Bug.bugCollection);
 
 module.exports = Bug;
