@@ -1,0 +1,46 @@
+<html>
+
+<body>
+
+	<h1>List of users</h1>
+
+	<table>
+		<tr>
+			<th>First name</th>
+			<th>Last name</th>
+			<th>Email</th>
+			<th>Thumbnail</th>
+		</tr>
+
+		<% users.forEach((user) => { %>
+
+			<tr>
+				<td><%= user.fname %></td>
+				<td><%= user.lname %></td>
+				<td><%= user.email %></td>
+				<%
+				var thumbnailpath = user.thumbnail;
+				%>
+				<td><img src=<%= thumbnailpath %> width="70" height="70" alt="profile"/></td>
+		
+				<td>
+					<a href = "/users/<%= user.id %>">Show</a>
+					<a href = "/users/<%= user.id %>/edit">Edit</a>
+					<a href = "/users/<%= user.id %>/delete">Delete</a>
+				</td>
+
+			</tr>
+
+
+
+		<% }) %>
+
+	</table>
+
+  <a href = "/users/new">New User</a>
+  <span class="divider"> | </span>
+  <a href = "/bugs">Back</a>
+
+</body>
+
+</html>

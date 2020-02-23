@@ -1,0 +1,34 @@
+<html>
+
+<body>
+
+	<div>
+		<span><strong>First name: </strong></span>
+		<span class="text"><%= user.fname %></span>
+	</div>
+	<br>
+	<div>
+		<span><strong>Last name: </strong></span>
+		<span class="text"><%= user.lname %></span>
+	</div>
+	<br>
+	<div>
+		<span><strong>Email: </strong></span>
+		<span class="text"><%= user.email %></span>
+	</div>
+	<br>
+	<div>
+		<span><strong>Thumbnail: </strong></span>
+		<span><%= user.thumbnail %></span>
+	</div>
+	<br>
+
+	<br>
+
+	<a href="/users/<%= user.id %>/edit">Edit</a>
+	<span class="divider"> | </span>
+	<a href="/users ">Back</a>
+
+</body>
+
+</html>
