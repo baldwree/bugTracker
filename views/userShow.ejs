@@ -19,7 +19,10 @@
 	<br>
 	<div>
 		<span><strong>Thumbnail: </strong></span>
-		<span><%= user.thumbnail %></span>
+		<%
+		var thumbnailpath = user.thumbnail;
+		%>
+		<img src=../<%= thumbnailpath %> width="70" height="70" alt="profile"/>
 	</div>
 	<br>
 
