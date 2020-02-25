@@ -43,6 +43,7 @@ describe("#showBug", () => {
 	});
 
 	it("renders show view if given id is valid", async() => {
+		// Stuck trying to figure out how this is supposed to work
 		BugDB.find = jest.fn((id) => id == 22 ? ken : null);
 		req.params = { id: 22 };
 		await c.showBug(req, res);
