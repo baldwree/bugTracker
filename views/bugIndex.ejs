@@ -7,6 +7,7 @@
 	<table>
 		<tr>
 			<th>Title</th>
+			<th>User</th>
 			<th>Description</th>
 			<th>Issue type</th>
 			<th>Priority</th>
@@ -17,6 +18,10 @@
 
 			<tr>
 				<td><%= bug.title %></td>
+				<td>
+					<% var user = users.find((item) => item.id == bug.userId);%>
+					<%= user.fname %> <%= user.lname %>
+				</td>
 				<td><%= bug.description %></td>
 				<td><%= bug.type %></td>
 				<td><%= bug.priority %></td>

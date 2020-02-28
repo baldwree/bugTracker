@@ -1,3 +1,5 @@
+const Bug = require('./Bug');
+
 class User {
 
 	constructor(info) {
@@ -33,12 +35,12 @@ class User {
 		return this.errors.length <= 0;
 	}
 
-  validateEmail(mail) {
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)){
-    return (true)
-    }
-    return (false)
-  }
+	validateEmail(mail) {
+		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)){
+			return (true)
+		}
+		return (false)
+	}
 
 	static all() {
 		return this.userCollection;
@@ -60,6 +62,13 @@ class User {
 	}
 
 	static delete(user) {
+		// let bugs = Bug.all();
+		
+		// for (var i = 0; i < bugs.length; i++) {
+		// 	if(bugs[i].userId == this.userCollection.indexOf(user)) {
+		// 		Bug.delete(bugs[i]);
+		// 	}
+		// }
 		this.userCollection.splice(this.userCollection.indexOf(user), 1);
 	}
 }

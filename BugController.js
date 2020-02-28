@@ -1,15 +1,25 @@
 const Bug = require('./Bug');
+const User = require('./User');
 
 class BugController {
 	// list
 	index(req, res) {
 		let bugs = Bug.all();
-		res.render('bugIndex', { bugs: bugs });
+		let users = User.all();
+
+		//deletes a bug if user doesn't exist
+		for (var i = 0; i < bugs.length; i++) {
+			if(!users.find((item) => item.id == bugs[i].userId)){
+				Bug.delete(bugs[i]);
+			};
+		}
+
+		res.render('bugIndex', { bugs: bugs, users: users });
 	}
 
 	// create
 	newBug(req, res) {
-		res.render('bugNew', { bug: new Bug() })
+		res.render('bugNew', { bug: new Bug(), users: User.all() })
 	}
 
 	createBug(req, res) {
@@ -33,10 +43,14 @@ class BugController {
 	showBug(req, res) {
 		let id = req.params.id;
 		let bug = Bug.get(id);
+
+		//working with displaying users
+		let user = User.get(bug.userId);
+
 		if (!bug) {
 			res.send("Could not find bug with id of " + id);
 		} else {
-			res.render('bugShow', { bug: bug })
+			res.render('bugShow', { bug: bug, user: user })
 		}
 	}
 
@@ -68,6 +82,7 @@ class BugController {
 			res.send("Could not find bug with id of " + id);
 		} else {
 			bug.title = req.body.bug.title;
+			bug.userId = req.body.bug.userId;
 			bug.description = req.body.bug.description;
 			bug.type = req.body.bug.type;
 			bug.priority = req.body.bug.priority;

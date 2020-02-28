@@ -32,6 +32,13 @@
 		<textarea name="bug[description]" id="bug_description"><%= bug.description %></textarea>
 	</div>
 
+	<div>
+		<label for="bug_userId">User</label>
+		<select name="bug[userId]" id="bug_userId" value="<%= bug.userId %>">
+			<%- users.map((user) => `<option value='${user.id}'>${user.fname} ${user.lname}</option>`).join('\n'); %>
+		</select>
+	</div>
+
 	<div class="field">
 		<label for="bug_type">Issue</label>
 		<select name="bug[type]" id="bug_type" value="<%= bug.type %>">
