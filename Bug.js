@@ -1,9 +1,12 @@
+const User = require('./User');
+
 class Bug {
 
 	constructor(info) {
 
 		if (info) {
 			this.title = info.title;
+			this.userId = info.userId;
 			this.description = info.description;
 			this.type = info.type;
 			this.priority = info.priority;
@@ -59,10 +62,10 @@ class Bug {
 Bug.idNo = 0;
 Bug.bugCollection = [];
 
-Bug.create({ title: 'crasheroo', description: 'Divide by zero error.', type: 'issue', priority: 'medium', status: 'closed' });
-Bug.create({ title: 'Validation not working', description: 'The title validation check is not firing!', type: 'issue', priority: 'high', status: 'open' });
-Bug.create({ title: 'Styling Needed', description: 'This site needs to be jazzed up!', type: 'feature', priority: 'high', status: 'open' });
+Bug.create({ title: 'crasheroo', userId: '3', description: 'Divide by zero error.', type: 'issue', priority: 'medium', status: 'closed' });
+Bug.create({ title: 'Validation not working', userId: '2', description: 'The title validation check is not firing!', type: 'issue', priority: 'high', status: 'open' });
+Bug.create({ title: 'Styling Needed', userId: '1', description: 'This site needs to be jazzed up!', type: 'feature', priority: 'high', status: 'open' });
 
-//console.log(Bug.bugCollection);
+console.log(Bug.bugCollection);
 
 module.exports = Bug;
