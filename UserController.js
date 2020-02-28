@@ -1,4 +1,5 @@
 const User = require('./User');
+const Bug = require('./Bug');
 
 class UserController {
 	// list
@@ -98,7 +99,24 @@ class UserController {
 
 		if (!user) {
 			res.send("Could not find user with id of " + id);
+		} else if (User.all().length <= 1) {
+			res.send("Must have at least one active user");
 		} else {
+
+			// deletes all bugs associated with this user
+			/*let bugs = Bug.all();
+			for each (var bug in bugs) {
+				if bug.id === user.id {
+					Bug.delete(bug);
+				}
+			}*/
+			let bugs = Bug.all();
+			bugs.forEach(bug => {
+				if (bug.userId == user.id) {
+					Bug.delete(bug);
+				}
+			});
+
 			User.delete(user);
 
 			res.writeHead(302, { 'Location': `/users` });

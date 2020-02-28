@@ -8,11 +8,11 @@ class BugController {
 		let users = User.all();
 
 		//deletes a bug if user doesn't exist
-		for (var i = 0; i < bugs.length; i++) {
+		/*for (var i = 0; i < bugs.length; i++) {
 			if(!users.find((item) => item.id == bugs[i].userId)){
 				Bug.delete(bugs[i]);
 			};
-		}
+		}*/
 
 		res.render('bugIndex', { bugs: bugs, users: users });
 	}
