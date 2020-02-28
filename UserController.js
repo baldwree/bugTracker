@@ -73,7 +73,6 @@ class UserController {
 			user.lname = req.body.user.lname;
 			user.email = req.body.user.email;
 			user.thumbnail = req.body.user.thumbnail;
-			// database would use 'save' method here
 
 			// send redirect to 'show' for new bug
 			res.writeHead(302, { 'Location': `/users/${user.id}` });
@@ -102,14 +101,7 @@ class UserController {
 		} else if (User.all().length <= 1) {
 			res.send("Must have at least one active user");
 		} else {
-
-			// deletes all bugs associated with this user
-			/*let bugs = Bug.all();
-			for each (var bug in bugs) {
-				if bug.id === user.id {
-					Bug.delete(bug);
-				}
-			}*/
+			// deletes all bugs associated with user being deleted
 			let bugs = Bug.all();
 			bugs.forEach(bug => {
 				if (bug.userId == user.id) {
