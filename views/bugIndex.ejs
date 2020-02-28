@@ -20,7 +20,7 @@
 				<td><%= bug.title %></td>
 				<td>
 					<% var user = users.find((item) => item.id == bug.userId);%>
-					<% 	let firstname = ""; let lastname = "";
+					<% 	let firstname = ""; let lastname = ""; // prevents error from empty user
 						if (user !== undefined) {
 							firstname = user.fname;
 							lastname = user.lname;

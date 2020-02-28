@@ -18,13 +18,16 @@ class Bug {
 	// error checking for creating bugs
 	isValid() {
 		this.errors = [];
-		if (!this.title || this.title.length <= 2){
+		if (!this.title || this.title.length <= 2) {
 			this.errors.push("The title must be at least 3 characters");
+		}
+		if (!this.userId || this.userId <= 0) {
+			this.errors.push("The bug must have an associated user");
 		}
 		if (!this.description || this.description.length <= 0) {
 			this.errors.push("The bug must have a description");
 		}
-		if (!this.type || this.type.lengh <= 0) {
+		if (!this.type || this.type.length <= 0) {
 			this.errors.push("The bug must have an issue type");
 		}
 		if (!this.priority || this.priority <= 0) {

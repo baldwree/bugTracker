@@ -6,14 +6,9 @@ class BugController {
 	index(req, res) {
 		let bugs = Bug.all();
 		let users = User.all();
+		/* bug deletion from empty user moved to UserController */
 
-		//deletes a bug if user doesn't exist
-		for (var i = 0; i < bugs.length; i++) {
-			if(!users.find((item) => item.id == bugs[i].userId)){
-				Bug.delete(bugs[i]);
-			};
-		}
-
+		
 		res.render('bugIndex', { bugs: bugs, users: users });
 	}
 

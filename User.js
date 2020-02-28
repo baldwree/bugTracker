@@ -19,15 +19,15 @@ class User {
 		if (!this.fname || this.fname.length <= 1){
 			this.errors.push("The first name cannot be blank");
 		}
-    if (!this.lname || this.lname.length <= 1){
-      this.errors.push("The last name cannot be blank");
-    }
-    if (!this.email || this.email.length <= 1){
-      this.errors.push("The email cannot be blank");
-    }
-		if (!this.validateEmail(this.email)){
-      this.errors.push("You have entered an invalid email address!");
-    }
+	    if (!this.lname || this.lname.length <= 1){
+	      this.errors.push("The last name cannot be blank");
+	    }
+	    if (!this.email || this.email.length <= 1){
+	      this.errors.push("The email cannot be blank");
+	    }
+			if (!this.validateEmail(this.email)){
+	      this.errors.push("You have entered an invalid email address!");
+	    }
 		if (!this.thumbnail || !(this.thumbnail.endsWith(".png") || this.thumbnail.endsWith('.gif') || this.thumbnail.endsWith('.jpg'))) {
 			this.errors.push("Thumbnail must end in .png, .gif, or .jpg");
 		}
@@ -62,13 +62,6 @@ class User {
 	}
 
 	static delete(user) {
-		// let bugs = Bug.all();
-		
-		// for (var i = 0; i < bugs.length; i++) {
-		// 	if(bugs[i].userId == this.userCollection.indexOf(user)) {
-		// 		Bug.delete(bugs[i]);
-		// 	}
-		// }
 		this.userCollection.splice(this.userCollection.indexOf(user), 1);
 	}
 }

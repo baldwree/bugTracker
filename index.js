@@ -56,7 +56,7 @@ app.post('/users/:id', (req, res) => {
 })
 
 
-// delete bug
+// delete user
 app.get('/users/:id/delete', (req, res) => {
 	userController.deleteUser(req, res);
 })
