@@ -58,11 +58,12 @@ class BugController {
 	editBug(req, res) {
 		let id = req.params.id;
 		let bug = Bug.get(id);
+		let users = User.all();
 		if (!bug) {
 			res.send("Could not find bug with id of " + id);
 		}
 		else {
-			res.render('bugEdit', { bug: bug });
+			res.render('bugEdit', { bug: bug, users: users });
 		}
 	}
 
